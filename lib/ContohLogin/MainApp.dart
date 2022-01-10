@@ -17,7 +17,13 @@ class _MainAppState extends State<MainApp> {
       initialRoute: FormLogin.routeName,
       routes: {
         FormLogin.routeName : (BuildContext ctx) => FormLogin(),
-        FormMainScreen.routeName : (BuildContext ctx) => FormMainScreen(),
+        FormMainScreen.routeName : (BuildContext ctx) {
+          var argument = ModalRoute.of(ctx).settings.arguments as Map;
+          return FormMainScreen(
+              username: argument["username"],
+              password: argument["password"]
+          );
+        },
         FormSetting.routeName : (ctx) => FormSetting()
       },
       onGenerateRoute: (RouteSettings setting) {

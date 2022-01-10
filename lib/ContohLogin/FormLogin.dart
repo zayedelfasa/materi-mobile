@@ -12,6 +12,8 @@ class FormLogin extends StatefulWidget {
 
 class _FormLoginState extends State<FormLogin> {
   double allPadding = 8.0;
+  TextEditingController _textControllerUsername = TextEditingController();
+  TextEditingController _textControllerPassword = TextEditingController();
 
   @override
   void initState() {
@@ -43,6 +45,7 @@ class _FormLoginState extends State<FormLogin> {
             Padding(
                 padding: EdgeInsets.all(allPadding),
                 child: TextField(
+                  controller: _textControllerUsername,
                   decoration: InputDecoration(
                     hintText: "Username"
                   ),
@@ -51,10 +54,10 @@ class _FormLoginState extends State<FormLogin> {
             Padding(
               padding: EdgeInsets.all(allPadding),
               child: TextField(
+                controller: _textControllerPassword,
                 obscureText: true,
                 decoration: InputDecoration(
                     hintText: "Password",
-
                 ),
               ),
             ),
@@ -76,6 +79,13 @@ class _FormLoginState extends State<FormLogin> {
 
   void onPressLogin() {
     // syntaxnya apa ?
-    Navigator.pushReplacementNamed(context, FormMainScreen.routeName);
+    // kiri : key
+    // kanan : value
+    Map map = {
+      "username" : _textControllerUsername.text,
+      "password" : _textControllerPassword.text
+    };
+
+    Navigator.pushReplacementNamed(context, FormMainScreen.routeName, arguments: map);
   }
 }

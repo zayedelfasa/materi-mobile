@@ -4,7 +4,10 @@ import 'package:kelas_widget/ContohLogin/FormSetting.dart';
 class FormMainScreen extends StatefulWidget {
   static String routeName = "/FormMainScreen";
 
-  const FormMainScreen({Key key}) : super(key: key);
+  String username;
+  String password;
+
+  FormMainScreen({Key key, this.username, this.password}) : super(key: key);
 
   @override
   _FormMainScreenState createState() => _FormMainScreenState();
@@ -19,9 +22,14 @@ class _FormMainScreenState extends State<FormMainScreen> {
       ),
       body: Container(
         alignment: Alignment.center,
-        child: ElevatedButton(
-          onPressed: onClickPres,
-          child: Text("Setting"),
+        child: Column(
+          children: [
+            Text("${widget.username} : ${widget.password}"),
+            ElevatedButton(
+              onPressed: onClickPres,
+              child: Text("Setting"),
+            ),
+          ],
         ),
       ),
     );
