@@ -1,10 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kelas_widget/AppBarSample.dart';
+import 'package:kelas_widget/ContohConstraint/ContohConstraint.dart';
 import 'package:kelas_widget/ContohLogin/MainApp.dart';
 
 void main() {
-  runApp(MainApp());
+  runApp(ContohConstraint());
 }
 
 class CupertinoApps extends StatefulWidget {
@@ -30,7 +31,6 @@ class _CupertinoAppsState extends State<CupertinoApps> {
           middle: Text('Cupertino Store'),
         ),
         child: GestureDetector(
-
           child: Container(
             child: Text("Hello"),
           ),
