@@ -15,6 +15,8 @@ import 'package:kelas_widget/ContohProvider/View/FormLogin/login.dart';
 import 'package:kelas_widget/ContohProvider/View/Route/route_class.dart';
 import 'package:kelas_widget/ContohProvider/model/login.dart';
 import 'package:kelas_widget/ContohProvider/state/state_login.dart';
+import 'package:kelas_widget/ContohSQFlite/route.dart';
+import 'package:kelas_widget/ContohSQFlite/view/main_view/sqflite_main.dart';
 import 'package:kelas_widget/service/BackgroundService.dart';
 import 'package:kelas_widget/service/NotificationService.dart';
 import 'package:provider/provider.dart';
@@ -37,10 +39,22 @@ import 'package:workmanager/workmanager.dart';
 //   runApp(RouteGetx());
 // }
 
+// contoh httpRequest menggunakan Getconnect (miliknya Getx)
+// void main() {
+//   runApp(MaterialApp(
+//     home: ListUserGetx(),
+//   ));
+// }
+
+// contoh sqflite dan SharedPreferences
 void main() {
-  runApp(MaterialApp(
-    home: ListUserGetx(),
-  ));
+  // runApp(
+  //   MaterialApp(
+  //     home: SQFliteView(),
+  //   )
+  // );
+
+  runApp(SQFliteRoute());
 }
 
 callbackdispatcher() {
