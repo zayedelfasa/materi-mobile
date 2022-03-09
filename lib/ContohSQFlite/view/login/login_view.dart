@@ -20,7 +20,7 @@ class ViewLogin extends StatelessWidget {
                   children: [
                     ElevatedButton(
                         onPressed: () {
-                          c.setLogin("zayedelfasa", "Bearer 1abc15b1dbd87db15c815ad");
+                          c.setLogin("zayedelfasa", "Bearer 1abc15b1dbd87db15c815ad", "admin");
                         },
                         child: Text("Login"))
                   ],

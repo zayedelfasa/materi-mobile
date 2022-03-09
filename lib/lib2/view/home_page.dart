@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:kelas_widget/models/Book.dart';
 import 'package:kelas_widget/lib2/contoller/contoller_homepage.dart';
 import 'package:kelas_widget/lib2/custom_widget/homepage_adress.dart';
 import 'package:kelas_widget/lib2/custom_widget/homepage_carousel.dart';
 
-class HomaPage extends StatelessWidget {
-  HomaPage({ Key key }) : super(key: key);
+class HomePage extends StatelessWidget {
+  HomePage({ Key key }) : super(key: key);
 
   final _controllerHomepage = Get.put(ControllerHomepage());
 
@@ -14,13 +15,23 @@ class HomaPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("Home Page"),
-        leading: IconButton(),
       ),
-      body: ListView(
-        children: [
-          HomePageAddress(alamat: _controllerHomepage.address,),
-          HomePageCarousel()
-        ],
+      body: GetBuilder<ControllerHomepage>(
+        initState: (state) {
+          _controllerHomepage.getBook();
+        },
+        init: _controllerHomepage,
+        builder: (ControllerHomepage c) {
+          return ListView.builder(
+            itemCount: c.listBook.length,
+            itemBuilder: (ctx, index) {
+            Book book = c.listBook[index];
+            return ListTile(
+              title: Text(book.title),
+              subtitle: Text(book.authorName),
+            );
+          });
+        }
       ),
     );
   }

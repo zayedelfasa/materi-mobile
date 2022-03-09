@@ -14,7 +14,8 @@ class SQFliteRoute extends StatelessWidget {
       getPages: [
         GetPage(name: SQFliteView.routeName, page: () => SQFliteView()),
         GetPage(name: ViewLogin.routeName, page: () => ViewLogin()),
-        GetPage(name: MainLogic.routeName, page: () => MainLogic())
+        GetPage(name: MainLogic.routeName, page: () => MainLogic()),
+        GetPage(name: "/user", page: () => Scaffold())
       ],
     );
   }

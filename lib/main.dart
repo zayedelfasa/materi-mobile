@@ -17,6 +17,7 @@ import 'package:kelas_widget/ContohProvider/model/login.dart';
 import 'package:kelas_widget/ContohProvider/state/state_login.dart';
 import 'package:kelas_widget/ContohSQFlite/route.dart';
 import 'package:kelas_widget/ContohSQFlite/view/main_view/sqflite_main.dart';
+import 'package:kelas_widget/lib2/view/home_page.dart';
 import 'package:kelas_widget/service/BackgroundService.dart';
 import 'package:kelas_widget/service/NotificationService.dart';
 import 'package:provider/provider.dart';
@@ -48,13 +49,13 @@ import 'package:workmanager/workmanager.dart';
 
 // contoh sqflite dan SharedPreferences
 void main() {
-  // runApp(
-  //   MaterialApp(
-  //     home: SQFliteView(),
-  //   )
-  // );
+  runApp(
+    MaterialApp(
+      home: HomePage(),
+    )
+  );
 
-  runApp(SQFliteRoute());
+  // runApp(SQFliteRoute());
 }
 
 callbackdispatcher() {

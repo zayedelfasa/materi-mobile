@@ -22,12 +22,29 @@ class MainLogic extends StatelessWidget {
           // print(pref.getString("token"));
           _controllerMainLogic.setValueUsername(pref.getString("username") ?? "");
           _controllerMainLogic.setValueToken(pref.getString("token") ?? "");
+          _controllerMainLogic.setValueRole(pref.getString("role") ?? "");
+          _controllerMainLogic.timeDuration();
         },
         builder: (ControllerMainLogic c) {
-          if(c.valueUsername.isEmpty && c.valueToken.isEmpty) {
-            return ViewLogin();
-          } else {
-            return SQFliteView();
+
+          if(c.timeValue == 0) {
+            return Scaffold(
+              body: Center(
+                child: Container(
+                  child: CircularProgressIndicator(),
+                ),
+              ),
+            );
+          }
+
+          else {
+            if(c.valueUsername.isEmpty && c.valueToken.isEmpty) {
+              return ViewLogin();
+            } else {
+              // check rule
+              if(c.valueRole == "admin")  return SQFliteView();
+              else return Scaffold();
+            }
           }
     });
   }

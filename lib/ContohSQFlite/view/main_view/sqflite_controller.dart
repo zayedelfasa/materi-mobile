@@ -76,6 +76,7 @@ class SQFliteController extends GetxController {
     final pref = await SharedPreferences.getInstance();
     pref.remove("username");
     pref.remove("token");
+    pref.remove("role");
 
     DatabaseHelper().deleteAlldata();
 
